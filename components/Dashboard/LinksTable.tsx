@@ -90,22 +90,22 @@ export function LinksTable({ links, loading, onLinkDeleted }: LinksTableProps) {
                 <table className="min-w-full divide-y divide-slate-700/50">
                     <thead className="bg-slate-900/50">
                         <tr>
-                            <th scope="col" className="px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="px-4 sm:px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Short Code
                             </th>
-                            <th scope="col" className="px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="px-4 sm:px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Target URL
                             </th>
-                            <th scope="col" className="px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="px-4 sm:px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Clicks
                             </th>
-                            <th scope="col" className="px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="hidden md:table-cell px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Created
                             </th>
-                            <th scope="col" className="px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="hidden lg:table-cell px-6 py-3.5 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Last Clicked
                             </th>
-                            <th scope="col" className="px-6 py-3.5 text-right text-xs font-medium text-slate-400 uppercase tracking-wider">
+                            <th scope="col" className="px-4 sm:px-6 py-3.5 text-right text-xs font-medium text-slate-400 uppercase tracking-wider">
                                 Actions
                             </th>
                         </tr>
@@ -113,30 +113,30 @@ export function LinksTable({ links, loading, onLinkDeleted }: LinksTableProps) {
                     <tbody className="divide-y divide-slate-700/50">
                         {links.map((link) => (
                             <tr key={link.id} className="hover:bg-slate-700/30 transition-colors">
-                                <td className="px-6 py-4 whitespace-nowrap">
+                                <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
                                         <code className="text-sm font-mono text-purple-400 bg-slate-900/50 px-2 py-1 rounded border border-slate-700/50">
                                             /{link.code}
                                         </code>
                                     </div>
                                 </td>
-                                <td className="px-6 py-4">
-                                    <div className="text-sm text-slate-300 max-w-md truncate" title={link.targetUrl}>
+                                <td className="px-4 sm:px-6 py-4">
+                                    <div className="text-sm text-slate-300 max-w-[120px] sm:max-w-xs md:max-w-sm truncate" title={link.targetUrl}>
                                         {link.targetUrl}
                                     </div>
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap">
+                                <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
                                         {link.clicks}
                                     </span>
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-400">
+                                <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-slate-400">
                                     {formatDate(link.createdAt)}
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-400">
+                                <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-slate-400">
                                     {formatDate(link.lastClicked)}
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div className="flex items-center justify-end gap-2">
                                         <button
                                             onClick={() => handleCopy(link.code, link.id)}
