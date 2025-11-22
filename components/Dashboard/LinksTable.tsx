@@ -13,12 +13,12 @@ export function LinksTable({ links, loading, onLinkDeleted }: LinksTableProps) {
     const [deletingId, setDeletingId] = useState<string | null>(null);
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
-    const handleDelete = async (id: string) => {
+    const handleDelete = async (code: string) => {
         if (!confirm('Are you sure you want to delete this link?')) return;
 
         try {
-            setDeletingId(id);
-            const response = await fetch(`/api/links/${id}`, {
+            setDeletingId(code);
+            const response = await fetch(`/api/links/${code}`, {
                 method: 'DELETE',
             });
 
@@ -163,8 +163,8 @@ export function LinksTable({ links, loading, onLinkDeleted }: LinksTableProps) {
                                             </svg>
                                         </button>
                                         <button
-                                            onClick={() => handleDelete(link.id)}
-                                            disabled={deletingId === link.id}
+                                            onClick={() => handleDelete(link.code)}
+                                            disabled={deletingId === link.code}
                                             className="p-2 text-slate-400 hover:text-red-400 transition-colors rounded-lg hover:bg-slate-700/50 disabled:opacity-50"
                                             title="Delete link"
                                         >
