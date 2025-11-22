@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TinyLink - Professional URL Shortener
 
-## Getting Started
+A modern, full-stack URL shortener built with Next.js 15, Tailwind CSS, and Prisma (PostgreSQL).
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Create Short Links**: Generate short, memorable links with optional custom codes.
+- **Smart Redirects**: Fast 302 redirects that track click analytics.
+- **Analytics Dashboard**: View total clicks, last clicked time, and manage your links.
+- **Detailed Stats**: Dedicated stats page for each link with rich visualization.
+- **Premium UI**: Glassmorphism design with dark mode and responsive layout.
+- **Robust Validation**: Secure input handling and duplicate code protection.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS + Custom Glassmorphism
+- **Database**: PostgreSQL (via Neon/Supabase)
+- **ORM**: Prisma
+- **Language**: TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏃‍♂️ Getting Started
 
-## Learn More
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd tinylink
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Set up environment variables**
+   Copy `.env.example` to `.env` and add your database URL:
+   ```bash
+   cp .env.example .env
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Initialize Database**
+   ```bash
+   npx prisma migrate dev
+   ```
 
-## Deploy on Vercel
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/links` | Create a new short link |
+| `GET` | `/api/links` | List all links |
+| `GET` | `/api/links/:code` | Get stats for a specific link |
+| `DELETE` | `/api/links/:code` | Delete a link |
+| `GET` | `/healthz` | Health check endpoint |
+
+## 📝 License
+
+MIT
